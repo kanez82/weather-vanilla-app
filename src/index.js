@@ -53,7 +53,7 @@ function handleSearchSubmit(event) {
    let date = new Date(timestamp * 1000);
    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-   return days[date.getDays()];
+   return days[date.getDay()];
   }
   function getForecast(city){
    let apiKey = "4of5564b133542e414ea78cf60tfb23d";
@@ -67,7 +67,7 @@ function handleSearchSubmit(event) {
    response.data.daily.forEach(function (day, index) {
     if (index < 5) {
       forecastHtml =  forecastHtml + `
-      <div class="weather-forecast-day">
+      <div class="col-2">
                       <div class="weather-forecast-date">${formatDay(day.time)}</div>
                       
                       <img src="${day.condition.icon_url}" class="weather-forecast-icon">
